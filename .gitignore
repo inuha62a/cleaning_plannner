@@ -38,3 +38,7 @@
 !/app/assets/builds/.keep
 
 /node_modules
+
+# Gitで管理する必要のないファイル
+.DS_Store
+/vendor/bundle
