@@ -89,6 +89,7 @@ Twitter共有ボタン（「掃除完了！」をワンタップ投稿）
   - Task の完了回数を集計し、条件に応じてバッジを付与。  
   - UserBadge モデルを追加し、獲得履歴を管理予定。 SNS共有は任意。
 ## ■画面遷移図
+https://www.figma.com/design/in01UuUZ2SNIKBwdrbSBJ2/%E3%81%8A%E6%8E%83%E9%99%A4%E4%BA%88%E5%AE%9A%E8%A1%A8_ER%E5%9B%B3?node-id=0-1&p=f&t=T4t6FFOGJ7UjZ395-0
 
 ## ■ER図
 https://app.diagrams.net/#G1qBC4JL1WaGSBezSnMEGa6WqqpluB9Xvi#%7B%22pageId%22%3A%22-tXvySkc4d2MTamq8V34%22%7D
