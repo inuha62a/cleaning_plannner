@@ -21,7 +21,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.2]
       # t.string   :current_sign_in_ip
       # t.string   :last_sign_in_ip
 
-      ## Confirmable
+      ## Confirmable (ユーザー登録後に確認メールを送る)
       t.string   :confirmation_token
       t.datetime :confirmed_at
       t.datetime :confirmation_sent_at
