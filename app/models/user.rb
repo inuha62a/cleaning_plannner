@@ -3,4 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         :confirmable # ← Confirmableを使うので追加
+  enum global_role: { member: 0, admin: 1 }
 end
