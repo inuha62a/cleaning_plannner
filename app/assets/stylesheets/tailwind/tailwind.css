@@ -1,0 +1,6 @@
+/* Tailwindは将来的に導入検討、検証できるようtailwind表記も反映されるよう設定 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "../ui/main.css";
