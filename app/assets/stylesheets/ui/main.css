@@ -47,3 +47,19 @@ h2 {
     background-color: #0056b3;
   }
   
+  .login-link-button {
+    display: inline-block;
+    padding: 8px 16px;
+    color: #007BFF; /* 青系の色 */
+    border: 1px solid #007BFF;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .login-link-button:hover {
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+  }
+  

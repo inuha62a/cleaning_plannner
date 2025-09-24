@@ -27,4 +27,7 @@
   </div>
 <% end %>
 
-<p class="actions"> すでにアカウントをお持ちの方は <%= link_to "ログイン", new_session_path(resource_name) %> </p>
+<p class="login-link-wrapper">
+  すでにアカウントをお持ちの方は
+  <%= link_to "ログイン", new_session_path(resource_name), class: "login-link-button" %>
+</p>
