@@ -62,4 +62,19 @@ h2 {
     color: #fff;
     text-decoration: none;
   }
+  .back-link-wrapper {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .back-link {
+    color: #666;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+    color: #333;
+  }
   
