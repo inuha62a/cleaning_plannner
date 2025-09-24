@@ -13,18 +13,18 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-    # HTML＋CSSのスタイルがTailwindより優先されるよう順番を先に配置
+    <!-- HTML＋CSSのスタイルがTailwindより優先されるよう順番を先に配置 -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
   <body>
-    # CSSベースのレイアウトに変更(rails new時にTailwind設定を入れたらTailwindがデフォルトになっていた)
+    <!-- CSSベースのレイアウトに変更(rails new時にTailwind設定を入れたらTailwindがデフォルトになっていた) -->
     <main class="main-layout">
       <%= yield %>
     </main>
-    # エラーメッセージの表示
+    <!-- エラーメッセージの表示 -->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>
