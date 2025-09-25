@@ -1,4 +1,10 @@
 /* ログイン・新規登録など */
-body {
-    background-color: pink !important;
+.form-checkbox {
+    margin-top: 8px;
   }
+  
+.form-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}

@@ -4,12 +4,18 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <label for="email" class="label">メールアドレス*</label>
   <div class="input">
-    <%= f.text_field :email, id: "email" %>
+    <%= f.text_field :email, id: "email", placeholder: "example@mail.com" %>
   </div>
 
   <label for="password" class="label">パスワード*</label>
   <div class="input">
-    <%= f.text_field :password, id: "password",  autocomplete: "new-password",  placeholder: "#{@minimum_password_length}文字以上" %>
+    <%= f.password_field :password, id: "password",  autocomplete: "current-password", placeholder: "パスワードを入力" %>
+  </div>
+  <div class="form-checkbox">
+    <label>
+      <input type="checkbox" id="show-password-checkbox">
+      パスワードを表示する
+    </label>
   </div>
   <div class="actions">
     <%= f.submit "ログイン" %>
