@@ -26,11 +26,10 @@
     <%= f.submit "登録する" %>
   </div>
 <% end %>
-
-<p class="login-link-wrapper">
+<p class="wrapper">
   すでにアカウントをお持ちの方は
-  <%= link_to "ログイン", new_session_path(resource_name), class: "login-link-button" %>
+  <%= link_to "ログイン", new_session_path(resource_name), class: "link-button login-link-button" %>
 </p>
-<p class="back-link-wrapper">
+<p class="wrapper">
   <%= link_to "トップに戻る", root_path, class: "back-link" %>
 </p>

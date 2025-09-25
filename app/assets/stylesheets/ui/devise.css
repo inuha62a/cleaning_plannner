@@ -1,5 +1,4 @@
 /* ログイン・新規登録など */
-.login-link-wrapper {
-    text-align: center;
-    margin-top: 1rem;
+.custom-box {
+    background-color: red !important;
   }

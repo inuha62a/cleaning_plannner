@@ -2,11 +2,16 @@
 
 /* CSSのコメントはこれで書く */
 /* Tailwindは将来的に導入検討、CSS優先ですが検証できるようTailwind表記も反映されるよう設定 */
-@import "tailwind/application.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
 
-@import "ui/main.css";
-@import "ui/dashboard.css";
-@import "ui/tasks.css";
-@import "ui/devise.css";
+/* 自作CSSをここで読み込む */
+@import "./ui/main.css";
+@import "./ui/dashboard.css";
+@import "./ui/tasks.css";
+@import "./ui/devise.css";
+
+@import "tailwindcss/utilities";
+
 
 /* 上書きしていく形でインポートしてくので順番が大事！ */
