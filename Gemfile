@@ -52,6 +52,7 @@ group :development do
   gem "web-console"
 end
 
-gem "tailwindcss-rails"
+gem "tailwindcss-rails", "~> 3.3.1"
+
 gem "devise"
 gem "rails-i18n"
