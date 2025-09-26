@@ -1,7 +1,7 @@
 <h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= render "users/shared/error_messages", resource: resource %>
   <label for="email" class="label">メールアドレス*</label>
   <div class="input">
     <%= f.text_field :email, id: "email", placeholder: "example@mail.com" %>
