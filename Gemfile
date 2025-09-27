@@ -53,6 +53,7 @@ group :development do
 end
 
 gem "tailwindcss-rails", "~> 3.3.1"
+gem "tailwindcss-ruby", "~> 3.4"
 
 gem "devise"
 gem "rails-i18n"

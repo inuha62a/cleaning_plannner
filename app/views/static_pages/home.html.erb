@@ -1,6 +1,8 @@
 <div>
   <% if user_signed_in? %>
     <p>こんにちは、<%= current_user.name || current_user.email %> さん！</p>
+    <%= link_to "マイページへ", users_profile_path %>
+
     <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete } %>
   <% else %>
     <%= link_to 'ログイン', new_user_session_path %> |
