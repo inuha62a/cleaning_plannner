@@ -6,6 +6,7 @@
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
+    "build:css": "bin/rails tailwindcss:build",
     "watch:css": "bin/rails tailwindcss:watch"
      },
   "dependencies": {
