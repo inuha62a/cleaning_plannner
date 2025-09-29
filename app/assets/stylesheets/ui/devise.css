@@ -18,7 +18,7 @@
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: #eaeaea; /* ちょっと濃いグレー */
   max-width: 500px;
 }
 
@@ -55,4 +55,38 @@
 
 .back-button {
   background-color: #aaa;
+}
+
+.danger-zone {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.danger-title {
+  font-size: 18px;
+  color: #cc0000;
+  margin-top: 40px;
+}
+
+.danger-button {
+  background-color: #eee;
+  color: #cc0000;
+  border: 1px solid #cc0000;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.danger-button:hover {
+  background-color: #f8d7da;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #999; /* より濃い枠線 */
+  background-color: #fff;
 }
