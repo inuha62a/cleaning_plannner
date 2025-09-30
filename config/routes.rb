@@ -1,24 +1,29 @@
 Rails.application.routes.draw do
+  # 管理者用ルート（namespace）
+  namespace :admin do
+    get "dashboard/index"
+    # 今後追加するならここにまとめて書ける！
+    # resources :users
+    # resources :tasks
+  end
+
+  # ユーザー認証（Devise）
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
 
+  # 一般ユーザー向けルート
   root "static_pages#home"
-
   get "static_pages/terms"
   get "static_pages/privacy"
   get "static_pages/contact"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "users/profile" => "users#show", as: :users_profile
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # ヘルスチェック
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Render dynamic PWA files from app/views/pwa/*
+  # PWA関連
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  # Defines the root path route ("/")
-  # root "posts#index"
 end

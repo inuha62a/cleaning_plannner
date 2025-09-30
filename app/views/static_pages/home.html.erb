@@ -3,12 +3,17 @@
     <p>こんにちは、<%= current_user.name || current_user.email %> さん！</p>
     <%= link_to "マイページへ", users_profile_path %>
 
+    <% if current_user.admin? %>
+      <%= link_to "管理者メニュー", admin_dashboard_path, class: "text-red-600 font-bold ml-2" %>
+    <% end %>
+
     <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete } %>
   <% else %>
     <%= link_to 'ログイン', new_user_session_path %> |
     <%= link_to '新規登録', new_user_registration_path %>
     <%= link_to "利用規約", static_pages_terms_path %>
   <% end %>
+
   <div class="bg-pink-500 text-white p-4">
     Tailwindで背景ピンク！
   </div>
