@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     # resources :tasks
   end
 
+  # 開発環境専用ルート（メール確認）
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+  
   # ユーザー認証（Devise）
   devise_for :users, controllers: {
     registrations: 'users/registrations'

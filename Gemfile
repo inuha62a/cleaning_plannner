@@ -50,6 +50,9 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  # 開発中のメール確認用（ブラウザで表示）
+  gem "letter_opener_web"
 end
 
 gem "tailwindcss-rails", "~> 3.3.1"
