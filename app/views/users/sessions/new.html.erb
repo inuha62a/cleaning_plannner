@@ -11,19 +11,28 @@
   <div class="input">
     <%= f.password_field :password, id: "password",  autocomplete: "current-password", placeholder: "パスワードを入力" %>
   </div>
+
   <div class="form-checkbox">
     <label>
       <input type="checkbox" id="show-password-checkbox">
       パスワードを表示する
     </label>
   </div>
+
   <div class="actions">
     <%= f.submit "ログイン" %>
   </div>
+
   <p class="wrapper">
     アカウントをお持ちでない方は
     <%= link_to "新規登録", new_registration_path(resource_name), class: "link-button signup-link-button" %>
   </p>
+
+  <p class="wrapper">
+    パスワードを忘れた方は <%= link_to "こちら", new_user_password_path, class: "inline-link" %> 
+  </p>
+
+
   <p class="wrapper">
     <%= link_to "トップに戻る", root_path, class: "back-link" %>
   </p>

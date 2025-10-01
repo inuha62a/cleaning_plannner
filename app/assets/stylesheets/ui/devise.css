@@ -90,3 +90,10 @@ input[type="password"] {
   border: 1px solid #999; /* より濃い枠線 */
   background-color: #fff;
 }
+
+.note {
+  font-size: 0.95em;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}

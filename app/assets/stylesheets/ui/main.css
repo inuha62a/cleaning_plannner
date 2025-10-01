@@ -91,3 +91,12 @@ h2 {
   text-decoration: underline;
   color: #333;
 }
+
+.inline-link {
+  color: #007BFF;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.inline-link:hover {
+  color: #0056b3;
+}
