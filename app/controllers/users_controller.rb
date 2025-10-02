@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_admin, except: [:show]
+  before_action :require_admin, except: [ :show ]
 
   def show
     @user = current_user

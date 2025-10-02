@@ -8,5 +8,4 @@ class User < ApplicationRecord
 
   # STEP6で追加予定のソフトデリート対応（今は未記述でOK）
   # acts_as_paranoid if column_names.include?("deleted_at")
-
 end

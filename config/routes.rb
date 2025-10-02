@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
-  
+
   # ユーザー認証（Devise）
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    passwords: 'users/passwords'
+    registrations: "users/registrations",
+    passwords: "users/passwords"
   }
 
   # 一般ユーザー向けルート
@@ -31,5 +31,4 @@ Rails.application.routes.draw do
   # PWA関連
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-
 end
