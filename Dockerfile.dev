@@ -19,7 +19,12 @@ RUN apt-get update -qq \
 
 RUN mkdir /myapp
 WORKDIR /myapp
-RUN gem install bundler
 
-# 一括コピー(ファイルの有無を気にしなくていい)
+# 依存ファイルだけ先にコピーしてインストール
+COPY package.json yarn.lock ./
+RUN yarn install
+
+# アプリ全体をコピー
 COPY . /myapp
+RUN gem install bundler
+RUN yarn install && ls -la node_modules/.bin

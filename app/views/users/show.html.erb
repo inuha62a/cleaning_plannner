@@ -1,0 +1,18 @@
+<h2>マイページ</h2>
+
+<div class="profile-box">
+  <div class="profile-item">
+    <label class="label">ユーザー名</label>
+    <p><%= @user.name %></p>
+  </div>
+
+  <div class="profile-item">
+    <label class="label">メールアドレス</label>
+    <p><%= @user.email %></p>
+  </div>
+
+  <div class="actions">
+    <%= link_to "編集する", edit_user_registration_path, class: "button" %>
+    <%= link_to "トップへ戻る", root_path, class: "button back-button" %>
+  </div>
+</div>

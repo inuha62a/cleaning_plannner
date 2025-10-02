@@ -1,1 +1,17 @@
-@import "tailwindcss";
+/* アプリケーション全体の設定 */
+
+/* CSSのコメントはこれで書く */
+/* Tailwindは将来的に導入検討、CSS優先ですが検証できるようTailwind表記も反映されるよう設定 */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/* 自作CSSをここで読み込む */
+@import "./ui/main.css";
+@import "./ui/dashboard.css";
+@import "./ui/tasks.css";
+@import "./ui/devise.css";
+
+@import "tailwindcss/utilities";
+
+
+/* 上書きしていく形でインポートしてくので順番が大事！ */

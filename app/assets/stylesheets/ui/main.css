@@ -1,0 +1,120 @@
+/* アプリケーション全体の共通スタイル */
+.main-layout {
+  max-width: 600px;
+  margin: 7rem auto 0;
+  padding: 20px;
+  display: block;
+}
+
+.wrapper {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+  
+.input input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  background-color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+  
+.label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+  color: #444;
+}
+  
+.actions input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+  
+.actions input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.link-button {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color: transparent;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login-link-button {
+  color: #007BFF;
+  border: 1px solid #007BFF;
+}
+
+.login-link-button:hover {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+.signup-link-button {
+  color: #FF8800;
+  border: 1px solid #FF8800;
+}
+
+.signup-link-button:hover {
+  background-color: #FF8800;
+  color: #fff;
+}
+
+.back-link {
+  color: #666;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+  color: #333;
+}
+
+.inline-link {
+  color: #007BFF;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.inline-link:hover {
+  color: #0056b3;
+}
+
+#error_explanation {
+  background-color: #ffecec;
+  border: 1px solid #f5c2c7;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 0 auto 1.5rem auto;
+  max-width: 500px;
+  color: #cc0000;
+  text-align: left;
+}
+#error_explanation h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+#error_explanation ul {
+  padding-left: 1.2rem;
+}

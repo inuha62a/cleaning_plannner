@@ -1,0 +1,41 @@
+<h2>パスワード再設定</h2>
+
+<div class="profile-box">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <label for="password" class="label">新しいパスワード*</label>
+    <% if @minimum_password_length %>
+      <p class="note">（<%= @minimum_password_length %>文字以上）</p>
+    <% end %>
+    <div class="input">
+      <%= f.password_field :password, id: "password", autocomplete: "new-password", placeholder: "新しいパスワードを入力" %>
+    </div>
+
+    <label for="password_confirmation" class="label">新しいパスワード（確認用）*</label>
+    <div class="input">
+      <%= f.password_field :password_confirmation, id: "password_confirmation", autocomplete: "new-password", placeholder: "確認用パスワードを入力" %>
+    </div>
+
+    <div class="form-checkbox form-checkbox--spaced">
+      <label>
+        <input type="checkbox" id="show-password-checkbox">
+        パスワードを表示する
+      </label>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "パスワードを変更する", class: "button" %>
+      <%= link_to "トップへ戻る", root_path, class: "button back-button" %>
+    </div>
+  <% end %>
+
+  <% if flash[:alert].to_s.include?("期限切れ") %>
+    <p class="note">
+      <%= link_to "再送する", new_user_password_path, class: "link-button" %>
+    </p>
+  <% end %>
+</div>
+
+<script src="/assets/show_password.js"></script>

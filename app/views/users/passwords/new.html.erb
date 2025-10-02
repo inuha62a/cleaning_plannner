@@ -1,0 +1,21 @@
+<h2>パスワード再設定メールの送信</h2>
+
+<div class="profile-box">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+
+    <label for="email" class="label">メールアドレス*</label>
+    <div class="input">
+      <%= f.email_field :email, id: "email", autocomplete: "email", placeholder: "example@mail.com" %>
+    </div>
+
+    <p class="note">
+      登録済みのメールアドレスを入力してください。パスワード再設定用のリンクをメールでお送りします。
+    </p>
+
+    <div class="actions">
+      <%= f.submit "メールを送信する", class: "button" %>
+      <%= link_to "トップへ戻る", root_path, class: "button back-button" %>
+    </div>
+  <% end %>
+</div>
