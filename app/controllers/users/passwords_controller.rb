@@ -11,11 +11,15 @@ class Users::PasswordsController < Devise::PasswordsController
   #   super
   # end
 
-  # GET /resource/password/edit?reset_password_token=abcdef
-  # def edit
-  #   super
-  # end
+  def edit
+    self.resource = resource_class.find_by_reset_password_token(params[:reset_password_token])
 
+    if resource.nil? || resource.reset_password_period_valid? == false
+      redirect_to new_user_password_path, alert: "このパスワード再設定リンクは期限切れです。もう一度再送してください。"
+    else
+      super
+    end
+  end
   # PUT /resource/password
   # def update
   #   super

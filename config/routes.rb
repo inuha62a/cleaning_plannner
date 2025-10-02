@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   
   # ユーザー認証（Devise）
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
   }
 
   # 一般ユーザー向けルート

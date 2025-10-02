@@ -22,9 +22,9 @@
     <!-- CSSベースのレイアウトに変更(rails new時にTailwind設定を入れたらTailwindがデフォルトになっていた) -->
     <main class="main-layout">
       <%= yield %>
+      <!-- エラーメッセージの表示 -->
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     </main>
-    <!-- エラーメッセージの表示 -->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
   </body>
 </html>

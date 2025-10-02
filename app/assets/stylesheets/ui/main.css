@@ -100,3 +100,21 @@ h2 {
 .inline-link:hover {
   color: #0056b3;
 }
+
+#error_explanation {
+  background-color: #ffecec;
+  border: 1px solid #f5c2c7;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 0 auto 1.5rem auto;
+  max-width: 500px;
+  color: #cc0000;
+  text-align: left;
+}
+#error_explanation h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+#error_explanation ul {
+  padding-left: 1.2rem;
+}
