@@ -10,9 +10,78 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_09_20_085802) do
+ActiveRecord::Schema[7.2].define(version: 2025_10_02_151245) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "groups", force: :cascade do |t|
+    t.bigint "owner_id", null: false
+    t.string "name"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_groups_on_owner_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.bigint "group_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_locations_on_group_id"
+    t.index ["user_id"], name: "index_locations_on_user_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.integer "group_role"
+    t.string "contact_type"
+    t.string "contact_value"
+    t.boolean "is_temporary"
+    t.datetime "registered_at"
+    t.string "registration_token"
+    t.datetime "token_expires_at"
+    t.datetime "invited_at"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_memberships_on_group_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.bigint "user_id", null: false
+    t.boolean "enabled"
+    t.integer "method"
+    t.datetime "scheduled_at"
+    t.datetime "sent_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_notifications_on_task_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "location_id"
+    t.bigint "group_id"
+    t.string "title"
+    t.integer "frequency"
+    t.datetime "last_done_at"
+    t.datetime "next_due_date"
+    t.integer "custom_interval_days"
+    t.integer "status"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_tasks_on_group_id"
+    t.index ["location_id"], name: "index_tasks_on_location_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,4 +103,15 @@ ActiveRecord::Schema[7.2].define(version: 2025_09_20_085802) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "groups", "users", column: "owner_id"
+  add_foreign_key "locations", "groups"
+  add_foreign_key "locations", "users"
+  add_foreign_key "memberships", "groups"
+  add_foreign_key "memberships", "users"
+  add_foreign_key "notifications", "tasks"
+  add_foreign_key "notifications", "users"
+  add_foreign_key "tasks", "groups"
+  add_foreign_key "tasks", "locations"
+  add_foreign_key "tasks", "users"
 end
