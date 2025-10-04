@@ -1,5 +1,5 @@
-class Task < ApplicationRecord
+class Location < ApplicationRecord
   belongs_to :user
-  belongs_to :location
-  belongs_to :group
+  belongs_to :group, optional: true
+  has_many :tasks
 end
