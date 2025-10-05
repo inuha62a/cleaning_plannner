@@ -1,9 +1,27 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# db/seeds.rb
+
+User.destroy_all
+Location.destroy_all
+Task.destroy_all
+
+user = User.create!(
+  email: 'test@example.com',
+  password: 'password',
+  confirmed_at: Time.current,
+  system_role: :general
+)
+
+location = Location.create!(
+  name: '玄関',
+  user: user,
+  group: nil
+)
+
+task = Task.create!(
+  name: 'ほうきで掃く',
+  user: user,
+  location: location,
+  status: :pending,
+  frequency: :weekly,
+  last_done_at: 5.days.ago
+)
