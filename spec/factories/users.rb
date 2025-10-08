@@ -5,7 +5,7 @@ FactoryBot.define do
       email { Faker::Internet.email }
       password { "password" }
       confirmed_at { Time.current }
-      system_role { :general }
+      global_role { :general }
     end
   end
   

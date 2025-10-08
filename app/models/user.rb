@@ -4,13 +4,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable # ← Confirmableを使うので追加
   # 権限管理
-  enum system_role: { general: 0, admin: 1 }
+  enum :global_role, { general: 0, admin: 1 }
 
   # 関連付け
   has_many :owned_groups, class_name: 'Group', foreign_key: 'owner_id'
   has_many :memberships
   has_many :groups, through: :memberships
-  has_many :locations
+  has_many :locations, dependent: :destroy
   has_many :tasks
 
   # STEP6で追加予定のソフトデリート対応（今は未記述でOK）

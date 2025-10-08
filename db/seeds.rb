@@ -1,14 +1,16 @@
 # db/seeds.rb
 
-User.destroy_all
-Location.destroy_all
+# 依存関係の深い順に削除(子→親の順に削除が鉄則)
 Task.destroy_all
+Location.destroy_all
+User.destroy_all
 
+# データ作成
 user = User.create!(
   email: 'test@example.com',
   password: 'password',
   confirmed_at: Time.current,
-  system_role: :general
+  global_role: :general
 )
 
 location = Location.create!(
@@ -18,7 +20,7 @@ location = Location.create!(
 )
 
 task = Task.create!(
-  name: 'ほうきで掃く',
+  title: 'ほうきで掃く',
   user: user,
   location: location,
   status: :pending,
