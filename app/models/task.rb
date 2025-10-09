@@ -4,6 +4,25 @@ class Task < ApplicationRecord
   belongs_to :group, optional: true
   has_many :notifications, dependent: :destroy
 
-  enum frequency: {daily: 0, weekly: 1, every_5_days: 2, monthly: 3, custom: 4 }
-  enum status: { pending: 0, done: 1 }
+  # enumはRails8以降位置引数スタイルが推奨になり旧記法が廃止になるので、位置因数で記載。(Rails7ならまだ旧記法でも動く)
+  enum :frequency, {daily: 0, weekly: 1, every_5_days: 2, monthly: 3, custom: 4 }
+  enum :status, { pending: 0, done: 1 }
+
+  def calculate_next_due_date
+    case frequency.to_sym
+    when :daily
+      last_done_at + 1.day
+    when :weekly
+      last_done_at + 7.days
+    when :every_5_days
+      last_done_at + 5.days
+    when :monthly
+      last_done_at + 1.month
+    when :custom
+      last_done_at + custom_interval_days.days
+    else
+      nil
+    end
+  end
+  
 end
