@@ -9,6 +9,8 @@ class Task < ApplicationRecord
   enum :status, { pending: 0, done: 1 }
 
   def calculate_next_due_date
+    return nil unless last_done_at  # ← 初回は前回実施がnilなので次の予定日もnilになる
+  
     case frequency.to_sym
     when :daily
       last_done_at + 1.day
@@ -19,10 +21,10 @@ class Task < ApplicationRecord
     when :monthly
       last_done_at + 1.month
     when :custom
+      return nil unless custom_interval_days
       last_done_at + custom_interval_days.days
     else
       nil
     end
   end
-  
 end
