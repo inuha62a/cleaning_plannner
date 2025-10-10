@@ -40,3 +40,17 @@ describe '#calculate_next_due_date' do
     expect(task.calculate_next_due_date).to be_nil
   end
 end
+
+# タスクを完了済みにし、last_done_atを現在時刻に更新するメソッドのテスト
+describe '#mark_as_done!' do
+  it 'updates status to done and sets last_done_at to current time' do
+    task = create(:task, status: :pending, last_done_at: nil)
+
+    freeze_time do
+      now = Time.current
+      task.mark_as_done!
+      expect(task.status).to eq('done')
+      expect(task.last_done_at).to eq(now)
+    end
+  end
+end

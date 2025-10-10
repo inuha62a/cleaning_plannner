@@ -44,6 +44,8 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+  # 時間操作用のヘルパーメソッドを適応
+  config.include ActiveSupport::Testing::TimeHelpers
   # FactoryBotの省略記法を許可する
   config.include FactoryBot::Syntax::Methods
 

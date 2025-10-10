@@ -27,4 +27,10 @@ class Task < ApplicationRecord
       nil
     end
   end
+
+  # タスクを完了済みにし、last_done_atを現在時刻に更新するメソッド
+  def mark_as_done!
+    update!(status: :done, last_done_at: Time.current)
+  end
+
 end
