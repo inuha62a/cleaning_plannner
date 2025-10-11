@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_10_02_151245) do
+ActiveRecord::Schema[7.2].define(version: 2025_10_11_135807) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,6 +65,20 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_02_151245) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
+  create_table "task_histories", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "done_at"
+    t.integer "status_before"
+    t.integer "status_after"
+    t.integer "source"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_task_histories_on_task_id"
+    t.index ["user_id"], name: "index_task_histories_on_user_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "location_id"
@@ -111,6 +125,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_02_151245) do
   add_foreign_key "memberships", "users"
   add_foreign_key "notifications", "tasks"
   add_foreign_key "notifications", "users"
+  add_foreign_key "task_histories", "tasks"
+  add_foreign_key "task_histories", "users"
   add_foreign_key "tasks", "groups"
   add_foreign_key "tasks", "locations"
   add_foreign_key "tasks", "users"

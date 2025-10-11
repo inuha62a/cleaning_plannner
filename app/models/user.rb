@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :groups, through: :memberships
   has_many :locations, dependent: :destroy
   has_many :tasks
+  has_many :task_histories
 
   # STEP6で追加予定のソフトデリート対応（今は未記述でOK）
   # acts_as_paranoid if column_names.include?("deleted_at")
