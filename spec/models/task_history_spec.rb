@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe TaskHistory, type: :model do
-  describe 'validations' do
-    it 'is valid with valid attributes' do
+  describe 'バリデーション' do
+    it '有効な属性があれば履歴は保存できること'  do
       user = FactoryBot.create(:user)
       task = FactoryBot.create(:task, user: user)
       history = TaskHistory.new(
@@ -17,8 +17,8 @@ RSpec.describe TaskHistory, type: :model do
     end
   end
 
-  describe 'status transitions' do
-    it 'is valid when reverting from done to pending' do
+  describe 'ステータスの遷移' do
+    it '完了から未完了に戻す履歴も有効であること' do
       user = FactoryBot.create(:user)
       task = FactoryBot.create(:task, user: user, status: :done)
 

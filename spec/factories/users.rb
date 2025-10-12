@@ -8,4 +8,3 @@ FactoryBot.define do
       global_role { :general }
     end
   end
-  

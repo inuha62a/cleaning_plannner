@@ -6,12 +6,12 @@ class Task < ApplicationRecord
   has_many :task_histories
 
   # enumはRails8以降位置引数スタイルが推奨になり旧記法が廃止になるので、位置因数で記載。(Rails7ならまだ旧記法でも動く)
-  enum :frequency, {daily: 0, weekly: 1, every_5_days: 2, monthly: 3, custom: 4 }
+  enum :frequency, { daily: 0, weekly: 1, every_5_days: 2, monthly: 3, custom: 4 }
   enum :status, { pending: 0, done: 1 }
 
   def calculate_next_due_date
     return nil unless last_done_at  # ← 初回は前回実施がnilなので次の予定日もnilになる
-  
+
     case frequency.to_sym
     when :daily
       last_done_at + 1.day
@@ -33,5 +33,4 @@ class Task < ApplicationRecord
   def mark_as_done!
     update!(status: :done, last_done_at: Time.current)
   end
-
 end

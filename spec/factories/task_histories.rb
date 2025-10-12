@@ -10,4 +10,3 @@ FactoryBot.define do
     note { "完了しました" }
   end
 end
-

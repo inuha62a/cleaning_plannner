@@ -7,7 +7,7 @@ class User < ApplicationRecord
   enum :global_role, { general: 0, admin: 1 }
 
   # 関連付け
-  has_many :owned_groups, class_name: 'Group', foreign_key: 'owner_id'
+  has_many :owned_groups, class_name: "Group", foreign_key: "owner_id"
   has_many :memberships
   has_many :groups, through: :memberships
   has_many :locations, dependent: :destroy

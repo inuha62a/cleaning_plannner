@@ -6,4 +6,3 @@ FactoryBot.define do
       group { nil }
     end
   end
-  
