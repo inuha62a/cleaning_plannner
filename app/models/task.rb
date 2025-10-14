@@ -7,7 +7,7 @@ class Task < ApplicationRecord
 
   # enumはRails8以降位置引数スタイルが推奨になり旧記法が廃止になるので、位置因数で記載。(Rails7ならまだ旧記法でも動く)
   enum :frequency, { daily: 0, weekly: 1, every_5_days: 2, monthly: 3, custom: 4 }
-  enum :status, { pending: 0, done: 1 }
+  enum :status, { pending: 0, done: 1, skipped: 2, overdue: 3 }
 
   def calculate_next_due_date
     return nil unless last_done_at  # ← 初回は前回実施がnilなので次の予定日もnilになる
