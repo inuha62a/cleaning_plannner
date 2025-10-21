@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   # 管理者用ルート（namespace）
   namespace :admin do
     get "dashboard/index"
-    # 今後追加するならここにまとめて書ける！
     # resources :users
     # resources :tasks
   end
@@ -24,6 +23,24 @@ Rails.application.routes.draw do
   get "static_pages/privacy"
   get "static_pages/contact"
   get "users/profile" => "users#show", as: :users_profile
+
+  # 掃除場所とタスク（個人）
+  resources :locations do
+    resources :tasks, only: [:index, :new, :create]
+  end
+
+  # グループと共有タスク
+  resources :groups do
+    resources :locations, only: [:index, :new, :create]
+    resources :tasks, only: [:index, :new, :create]
+  end
+
+  # タスク単体操作（編集・削除・完了）
+  resources :tasks, only: [:edit, :update, :destroy] do
+    member do
+      patch :mark_as_done
+    end
+  end
 
   # ヘルスチェック
   get "up" => "rails/health#show", as: :rails_health_check

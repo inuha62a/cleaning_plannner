@@ -1,0 +1,17 @@
+<h2 class="text-lg font-bold mb-4">掃除場所の編集</h2>
+
+<form action="<%= location_path(@location) %>" method="post">
+  <%= csrf_meta_tags %>
+  <%= hidden_field_tag :_method, "patch" %>
+
+  <div class="form-group">
+    <label for="location_name">場所の名前</label>
+    <input type="text" name="location[name]" id="location_name" value="<%= @location.name %>" required>
+  </div>
+
+  <input type="submit" value="更新する" class="bg-yellow-500 text-white px-4 py-2 rounded">
+</form>
+
+<div class="mt-4">
+  <%= link_to "一覧に戻る", locations_path(context_params), class: "text-gray-600 underline" %>
+</div>

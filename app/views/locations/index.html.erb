@@ -1,0 +1,16 @@
+<h2>掃除場所一覧</h2>
+
+<ul>
+  <% @locations.each do |location| %>
+    <li class="mb-2">
+      <strong><%= location.name %></strong><br>
+      <%= link_to "この場所のタスクを見る", location_tasks_path(location), class: "text-blue-500 underline" %> |
+      <%= link_to "編集", edit_location_path(location), class: "text-gray-600" %> |
+      <%= button_to "削除", location_path(location), method: :delete, data: { confirm: "削除してもよいですか？" }, class: "text-red-600" %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="mt-4">
+  <%= link_to "新しい場所を追加する", new_location_path, class: "text-green-600 underline" %>
+</div>

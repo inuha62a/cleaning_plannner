@@ -1,20 +1,42 @@
-<div>
+<div class="p-4">
   <% if user_signed_in? %>
-    <p>こんにちは、<%= current_user.name || current_user.email %> さん！</p>
-    <%= link_to "マイページへ", users_profile_path %>
+    <p class="mb-2">こんにちは、<%= current_user.name || current_user.email %> さん！</p>
+    <%= link_to "マイページへ", users_profile_path, class: "text-blue-600 underline" %>
 
     <% if current_user.admin? %>
       <%= link_to "管理者メニュー", admin_dashboard_path, class: "text-red-600 font-bold ml-2" %>
     <% end %>
 
-    <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete } %>
+    <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: "ml-4 text-gray-600" %>
+
+    <div class="mt-6">
+      <h2 class="text-lg font-bold mb-2">🧹 本日の掃除予定</h2>
+
+      <% if @today_tasks.present? %>
+        <ul class="list-disc pl-5">
+          <% @today_tasks.each do |task| %>
+            <li>
+              <strong><%= task.title %></strong>
+              （<%= task.location&.name || "場所未設定" %>）
+              <%= link_to "完了", mark_as_done_task_path(task), method: :patch, class: "ml-2 text-green-600 underline" %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>今日は掃除の予定はありません 🎉</p>
+      <% end %>
+    </div>
+
+    <div class="mt-4">
+      <%= link_to "すべてのタスクを見る", locations_path, class: "text-blue-500 underline" %>
+    </div>
   <% else %>
-    <%= link_to 'ログイン', new_user_session_path %> |
-    <%= link_to '新規登録', new_user_registration_path %>
-    <%= link_to "利用規約", static_pages_terms_path %>
+    <%= link_to 'ログイン', new_user_session_path, class: "text-blue-600" %> |
+    <%= link_to '新規登録', new_user_registration_path, class: "text-blue-600" %> |
+    <%= link_to "利用規約", static_pages_terms_path, class: "text-gray-600" %>
   <% end %>
 
-  <div class="bg-pink-500 text-white p-4">
+  <div class="bg-pink-500 text-white p-4 mt-6">
     Tailwindで背景ピンク！
   </div>
 </div>

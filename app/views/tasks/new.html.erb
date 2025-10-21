@@ -1,0 +1,33 @@
+<h2>タスク登録</h2>
+
+<form action="<%= location_tasks_path(@location) %>" method="post">
+  <%= csrf_meta_tags %>
+
+  <div class="form-group">
+    <label for="task_title">掃除内容</label>
+    <input type="text" name="task[title]" id="task_title" required>
+  </div>
+
+  <div class="form-group">
+    <label for="task_last_done_at">前回掃除日</label>
+    <input type="date" name="task[last_done_at]" id="task_last_done_at">
+  </div>
+
+  <div class="form-group">
+    <label for="task_frequency">頻度</label>
+    <select name="task[frequency]" id="task_frequency">
+      <option value="daily">毎日</option>
+      <option value="weekly">毎週</option>
+      <option value="every_5_days">5日ごと</option>
+      <option value="monthly">毎月</option>
+      <option value="custom">カスタム</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="task_custom_interval_days">カスタム間隔（日）</label>
+    <input type="number" name="task[custom_interval_days]" id="task_custom_interval_days" min="1">
+  </div>
+
+  <input type="submit" value="登録する">
+</form>

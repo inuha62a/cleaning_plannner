@@ -1,0 +1,16 @@
+<h2 class="text-lg font-bold mb-4">新しい掃除場所を登録</h2>
+
+<form action="<%= locations_path %>" method="post">
+  <%= csrf_meta_tags %>
+
+  <div class="form-group">
+    <label for="location_name">場所の名前</label>
+    <input type="text" name="location[name]" id="location_name" required>
+  </div>
+
+  <input type="submit" value="登録する" class="bg-green-500 text-white px-4 py-2 rounded">
+</form>
+
+<div class="mt-4">
+  <%= link_to "戻る", locations_path, class: "text-gray-600 underline" %>
+</div>
